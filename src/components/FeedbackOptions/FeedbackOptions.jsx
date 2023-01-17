@@ -1,9 +1,11 @@
 import { Button } from './FeedbackOptions.styled';
+import PropTypes from 'prop-types';
 
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return options.map(option => (
     <Button
       key={option}
+      keyStatus={option}
       onClick={() => {
         onLeaveFeedback(option);
       }}
@@ -12,3 +14,7 @@ export default function FeedbackOptions({ options, onLeaveFeedback }) {
     </Button>
   ));
 }
+
+Button.propTypes = {
+  keyStatus: PropTypes.string.isRequired,
+};

@@ -8,22 +8,17 @@ export const Button = styled.button`
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
 
   :hover {
-    background-color: ${props => (props.children === 'good' ? 'green' : 'red')};
+    background-color: ${props => {
+      switch (props.keyStatus) {
+        case 'good':
+          return 'rgb(0, 255, 0, 0.4)';
+        case 'neutral':
+          return 'rgb(0, 0, 255, 0.4)';
+        case 'bad':
+          return 'rgb(255, 0, 0, 0.4)';
+        default:
+          throw new Error();
+      }
+    }};
   }
 `;
-
-//  background-color: ${props => {
-//       console.log(props.children);
-//       switch (props.children) {
-//         case 'good':
-//           return 'green';
-//         case 'neutral':
-//           return 'gray';
-//         case 'bad':
-//           return 'red';
-//         default:
-//           throw new Error();
-//       }
-//     }};
-
-// console.log(props.children);
